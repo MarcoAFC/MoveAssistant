@@ -49,18 +49,30 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         width: MediaQuery.of(context).size.width*0.5,
                         height: MediaQuery.of(context).size.height*0.5,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 8,
-                            color: BackGroundColor
-                          ),
-                          shape: BoxShape.circle
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              bottom: MediaQuery.of(context).size.height*0.11,
+                              child: SvgPicture.asset(
+                                "assets/images/black_circle.svg",
+                                placeholderBuilder: (context) => Container(),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: MediaQuery.of(context).size.height*0.11,
+                              left: MediaQuery.of(context).size.width*0.022,
+                              child: SvgPicture.asset(
+                                "assets/images/purple_circle.svg",
+                                placeholderBuilder: (context) => Container(),
+                              ),
+                            ),
+                          ]
                         )
                       ),
                     ),
                     Positioned(
                       left: MediaQuery.of(context).size.width*0.57,
-                      top: MediaQuery.of(context).size.height*0.16,
+                      top: MediaQuery.of(context).size.height*0.17,
                       child: StreamBuilder<int>(
                         stream: controller.distanceStream,
                         builder: (context, snapshot) {
@@ -92,18 +104,30 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         width: MediaQuery.of(context).size.width*0.5,
                         height: MediaQuery.of(context).size.height*0.5,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 8,
-                            color: TextColor
-                          ),
-                          shape: BoxShape.circle
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              bottom: MediaQuery.of(context).size.height*0.11,
+                              child: SvgPicture.asset(
+                                "assets/images/black_circle.svg",
+                                placeholderBuilder: (context) => Container(),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: MediaQuery.of(context).size.height*0.11,
+                              left: MediaQuery.of(context).size.width*0.022,
+                              child: SvgPicture.asset(
+                                "assets/images/purple_circle.svg",
+                                placeholderBuilder: (context) => Container(),
+                              ),
+                            ),
+                          ]
                         ),
                       ),
                     ),
                     Positioned(
                       left: MediaQuery.of(context).size.width*0.25,
-                      bottom: MediaQuery.of(context).size.height*0.185,
+                      bottom: MediaQuery.of(context).size.height*0.175,
                       child: StreamBuilder<Object>(
                         stream: controller.temperatureStream,
                         builder: (context, snapshot) {

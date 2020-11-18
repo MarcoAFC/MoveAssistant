@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'SplashScreen.dart';
+import 'HomePage.dart';
 import 'Colors.dart';
 void main() {
   runApp(MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primaryColor: BackGroundColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Splash(),
+      home: HomePage(),
     );
   }
 }

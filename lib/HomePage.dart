@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:moveassistant/HomePage_controller.dart';
 import 'Colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -7,7 +8,10 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {  
+
+  HomePageController controller = HomePageController();  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,11 +61,16 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                       left: MediaQuery.of(context).size.width*0.57,
                       top: MediaQuery.of(context).size.height*0.16,
-                      child: Text(
-                        "3 m",
-                        style: TextStyle(
-                          fontSize: 35
-                        ),
+                      child: StreamBuilder<int>(
+                        stream: controller.distanceStream,
+                        builder: (context, snapshot) {
+                          return Text(
+                            "${snapshot.hasData? snapshot.data : "XX"} m",
+                            style: TextStyle(
+                              fontSize: 35
+                            ),
+                          );
+                        }
                       ),
                     ),
                     Positioned(
@@ -95,11 +104,16 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                       left: MediaQuery.of(context).size.width*0.25,
                       bottom: MediaQuery.of(context).size.height*0.185,
-                      child: Text(
-                        "22 ºC",
-                        style: TextStyle(
-                          fontSize: 35
-                        ),
+                      child: StreamBuilder<Object>(
+                        stream: controller.temperatureStream,
+                        builder: (context, snapshot) {
+                          return Text(
+                            "${snapshot.hasData? snapshot.data : "XX"} ºC",
+                            style: TextStyle(
+                              fontSize: 35
+                            ),
+                          );
+                        }
                       ),
                     ),
                     Positioned(

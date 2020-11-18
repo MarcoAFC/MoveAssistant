@@ -10,33 +10,117 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        color: WhiteColor,
-        child: Column(
-          children: [
-            Flexible(
-              flex: 2,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height*2/3,
-                color: BackGroundColor,
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: SvgPicture.asset(
-                    'assets/images/dolphin.svg',
-                    height: MediaQuery.of(context).size.height*2/6
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          color: WhiteColor,
+          child: Column(
+            children: [
+              Flexible(
+                flex: 3,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height*2/3,
+                  color: BackGroundColor,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: SvgPicture.asset(
+                      'assets/images/dolphin.svg',
+                      height: MediaQuery.of(context).size.height*2/6,
+                      placeholderBuilder: (context) => Container(
+                        width: 10,
+                        height: 10,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Flexible(
-              flex: 3,
-              child: Container(),
-            )
-          ]
-        ),
-      )
+              Flexible(
+                flex: 4,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: MediaQuery.of(context).size.width*0.4,
+                      bottom: MediaQuery.of(context).size.height*0.11,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width*0.5,
+                        height: MediaQuery.of(context).size.height*0.5,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 8,
+                            color: BackGroundColor
+                          ),
+                          shape: BoxShape.circle
+                        )
+                      ),
+                    ),
+                    Positioned(
+                      left: MediaQuery.of(context).size.width*0.57,
+                      top: MediaQuery.of(context).size.height*0.16,
+                      child: Text(
+                        "3 m",
+                        style: TextStyle(
+                          fontSize: 35
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: MediaQuery.of(context).size.width*0.47,
+                      top: MediaQuery.of(context).size.height*0.01,
+                      child: Container(
+                        child: Text(
+                          "Distância",
+                          style: TextStyle(
+                            fontSize: 35,
+                            color: TextColor
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: MediaQuery.of(context).size.width*0.1,
+                      top: MediaQuery.of(context).size.height*0.09,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width*0.5,
+                        height: MediaQuery.of(context).size.height*0.5,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 8,
+                            color: TextColor
+                          ),
+                          shape: BoxShape.circle
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: MediaQuery.of(context).size.width*0.25,
+                      bottom: MediaQuery.of(context).size.height*0.185,
+                      child: Text(
+                        "22 ºC",
+                        style: TextStyle(
+                          fontSize: 35
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: MediaQuery.of(context).size.width*0.11,
+                      bottom: MediaQuery.of(context).size.height*0.015,
+                      child: Container(
+                        child: Text(
+                          "Temperatura",
+                          style: TextStyle(
+                            fontSize: 35
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              )
+            ]
+          ),
+        )
+      ),
     );
   }
 }

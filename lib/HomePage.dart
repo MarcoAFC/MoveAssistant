@@ -4,6 +4,52 @@ import 'package:moveassistant/HomePage_controller.dart';
 import 'Colors.dart';
 
 class HomePage extends StatefulWidget {
+
+  final json = {
+    "Read": [
+      {
+      "distance": "3.15",
+      "temperature": "30"
+      },
+      {
+        "distance": "3.00",
+        "temperature": "31"
+      },
+      {
+        "distance": "2.40",
+        "temperature": "28"
+      },
+      {
+        "distance": "1.80",
+        "temperature": "29"
+      },
+      {
+        "distance": "1.00",
+        "temperature": "30"
+      },
+      {
+        "distance": "1.15",
+        "temperature": "33"
+      },
+      {
+        "distance": "1.00",
+        "temperature": "37"
+      },
+      {
+        "distance": "0.85",
+        "temperature": "40"
+      },
+      {
+        "distance": "0.50",
+        "temperature": "48"
+      },
+      {
+        "distance": "0.20",
+        "temperature": "60"
+      }
+    ]
+  };
+
   @override
   _HomePageState createState() => _HomePageState();
 }

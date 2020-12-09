@@ -4,52 +4,6 @@ import 'package:moveassistant/HomePage_controller.dart';
 import 'Colors.dart';
 
 class HomePage extends StatefulWidget {
-
-  final json = {
-    "Read": [
-      {
-      "distance": "3.15",
-      "temperature": "30"
-      },
-      {
-        "distance": "3.00",
-        "temperature": "31"
-      },
-      {
-        "distance": "2.40",
-        "temperature": "28"
-      },
-      {
-        "distance": "1.80",
-        "temperature": "29"
-      },
-      {
-        "distance": "1.00",
-        "temperature": "30"
-      },
-      {
-        "distance": "1.15",
-        "temperature": "33"
-      },
-      {
-        "distance": "1.00",
-        "temperature": "37"
-      },
-      {
-        "distance": "0.85",
-        "temperature": "40"
-      },
-      {
-        "distance": "0.50",
-        "temperature": "48"
-      },
-      {
-        "distance": "0.20",
-        "temperature": "60"
-      }
-    ]
-  };
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -57,7 +11,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {  
 
   HomePageController controller = HomePageController();  
-
+  @override
+  void initState() {
+    super.initState();
+    controller.runData();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                       left: MediaQuery.of(context).size.width*0.57,
                       top: MediaQuery.of(context).size.height*0.17,
-                      child: StreamBuilder<int>(
+                      child: StreamBuilder<double>(
                         stream: controller.distanceStream,
                         builder: (context, snapshot) {
                           return Text(
@@ -174,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                       left: MediaQuery.of(context).size.width*0.25,
                       bottom: MediaQuery.of(context).size.height*0.175,
-                      child: StreamBuilder<Object>(
+                      child: StreamBuilder<double>(
                         stream: controller.temperatureStream,
                         builder: (context, snapshot) {
                           return Text(

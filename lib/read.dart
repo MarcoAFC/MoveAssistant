@@ -7,14 +7,14 @@ String readToJson(Read data) => json.encode(data.toJson());
 class Read {
   int id;
   double distance;
-  int temperature;
+  double temperature;
 
   Read({this.id, this.distance, this.temperature});
 
   factory Read.fromJson(Map<String, dynamic> json) => Read(
-    id: json["id"],
-    distance: json["distance"],
-    temperature: json["temperature"],
+    id: int.tryParse(json["id"]?? "0"),
+    distance: double.tryParse(json["distance"]?? "0"),
+    temperature: double.tryParse(json["temperature"]?? "0"),
   );
 
   Map<String, dynamic> toJson() => {
@@ -23,5 +23,8 @@ class Read {
     "temperature": temperature,
   };
 
+  static List<Read> listFromJson(List<Map<String, dynamic>> list){
+    return list.map((e) => e != null? Read.fromJson(e) : null).toList();
+  }
 }
 
